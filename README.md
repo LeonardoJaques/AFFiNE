@@ -176,6 +176,18 @@ We would like to express our gratitude to all the individuals who have already c
 
 Begin with Docker to deploy your own feature-rich, unrestricted version of AFFiNE. Our team is diligently updating to the latest version. For more information on how to self-host AFFiNE, please refer to our [documentation](https://docs.affine.pro/self-host-affine).
 
+### Security Checklist
+
+Before deploying to production, review the following items in `.docker/selfhost/`:
+
+1. **Set strong passwords** — Copy `.env.example` to `.env` and replace all placeholder passwords (`DB_PASSWORD`, `REDIS_PASSWORD`).
+2. **PostgreSQL authentication** — The compose file requires password authentication. Never use `POSTGRES_HOST_AUTH_METHOD: trust` in production.
+3. **Redis authentication** — Redis is configured with `--requirepass`. Ensure `REDIS_PASSWORD` is set.
+4. **Network isolation** — PostgreSQL and Redis run on an internal Docker network with no ports exposed to the host.
+5. **App binding** — The application binds to `127.0.0.1` only. Use a reverse proxy (Nginx, Caddy) with HTTPS in front.
+6. **Firewall** — Ensure ports `5432` and `6379` are blocked on your host firewall (`ufw`, `iptables`).
+7. **Backups** — Schedule regular `pg_dump` backups of the `DB_DATA_LOCATION` volume.
+
 [![Run on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://sealos.io/products/app-store/affine)
 
 [![Run on ClawCloud](https://raw.githubusercontent.com/ClawCloud/Run-Template/refs/heads/main/Run-on-ClawCloud.svg)](https://template.run.claw.cloud/?openapp=system-fastdeploy%3FtemplateName%3Daffine)
