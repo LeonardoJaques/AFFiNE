@@ -168,7 +168,19 @@ Thanks a lot to the community for providing such powerful and simple libraries, 
 
 We would like to express our gratitude to all the individuals who have already contributed to AFFiNE! If you have any AFFiNE-related project, documentation, tool or template, please feel free to contribute it by submitting a pull request to our curated list on GitHub: [awesome-affine](https://github.com/toeverything/awesome-affine).
 
-- **Leonardo Jaques** - Security and Self-host deployments improvements
+<br/>
+<table style="border: none;">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/LeonardoJaques">
+        <img src="https://github.com/LeonardoJaques.png?size=100" width="60px;" alt="Leonardo Jaques"/><br />
+        <sub><b>Leonardo Jaques</b></sub>
+      </a>
+      <br />
+      <em>Security & Self-host</em>
+    </td>
+  </tr>
+</table>
 
 <a href="https://github.com/toeverything/affine/graphs/contributors">
   <img alt="contributors" src="https://opencollective.com/affine/contributors.svg?width=890&button=false" />
