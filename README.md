@@ -186,7 +186,7 @@ Before deploying to production, review the following items in `.docker/selfhost/
 4. **Network isolation** — PostgreSQL and Redis run on an internal Docker network with no ports exposed to the host.
 5. **App binding** — The application binds to `127.0.0.1` only. Use a reverse proxy (Nginx, Caddy) with HTTPS in front.
 6. **Firewall** — Ensure ports `5432` and `6379` are blocked on your host firewall (`ufw`, `iptables`).
-7. **Backups** — Schedule regular `pg_dump` backups of the `DB_DATA_LOCATION` volume.
+7. **Backups** — Use `pg_dump` for logical database backups (connects to the server and exports SQL/data). For physical/PGDATA backups of the `DB_DATA_LOCATION` volume, use `pg_basebackup` or WAL archiving instead — `pg_dump` does not back up the filesystem data directory.
 
 [![Run on Sealos](https://sealos.io/Deploy-on-Sealos.svg)](https://sealos.io/products/app-store/affine)
 
