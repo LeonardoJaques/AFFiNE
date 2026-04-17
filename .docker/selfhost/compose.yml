@@ -52,7 +52,7 @@ services:
   redis:
     image: redis
     container_name: affine_redis
-    command: redis-server --requirepass ${REDIS_PASSWORD:?REDIS_PASSWORD not set}
+    command: ['redis-server', '--requirepass', '${REDIS_PASSWORD:?REDIS_PASSWORD not set}']
     healthcheck:
       test: ['CMD', 'redis-cli', '-a', "${REDIS_PASSWORD:?REDIS_PASSWORD not set}", '--no-auth-warning', '--raw', 'ping']
       interval: 10s
